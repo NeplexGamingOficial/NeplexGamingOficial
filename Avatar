@@ -1,0 +1,24 @@
+$nomention
+$if[$isNumber[$message[1]]==true]
+$if[$userExists[$message[1]]==true]
+$title[Avatar de $username[$message[1]]#$discriminator[$message[1]]]
+$color[C71585]
+$image[$userAvatar[$message[1]]?size=2048]
+$addButton[yes;$userAvatar[$message[1]]?size=2048;Download;link;no;] 
+$endif
+$endif
+$if[$isNumber[$message[1]]==false]
+$if[$userExists[$mentioned[1;yes]]==true]
+$title[$username[$mentioned[1;yes]]#$discriminator[$mentioned[1;yes]] Avatar]
+$color[C71585]
+$image[$userAvatar[$mentioned[1;yes]]?size=2048]
+$addButton[yes;$userAvatar[$mentioned[1;yes]]?size=2048;Download;link;no;] $onlyIf[!=$mentioned[1];por favor mencione alguém!]
+$endif
+$endif
+$if[$isNumber[$message[1]]==true]
+$if[$userExists[$message[1]]==false]
+$title[$username Erro]
+$description[Sabe aquele ID que você colocou no comando? Ele não é mais valido ou está incorreto]
+$color[8A2BE2]
+$endif
+$endif
